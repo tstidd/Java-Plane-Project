@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -13,31 +14,64 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
- 
+import java.util.Date;
+
 public class MyGameFrame extends Frame {
 	
 	Image planeImage = GameUtil.getImage("images/plane.png");
 	Image bg=GameUtil.getImage("images/bg.jpg");
 	
+	
 	Plane plane = new Plane(planeImage,300,300);
 	Bullet[] bullets = new Bullet[50];
 	
-	//ArrayList<Bullet> bullets = new ArrayList<Bullet>();
-	//Bullet bullet = new Bullet();
+	
+	Explode explosion;
+	
+	Date startTime = new Date();
+	Date endTime;
+	int period;
 	
 	@Override
 	public void paint(Graphics g) {
-	
+		Color c = g.getColor();
 		g.drawImage(bg,0,0,null);
 		plane.drawSelf(g);
 		
-	
 		
 		for(int i = 0; i<bullets.length;i++) {
 			
 			bullets[i].draw(g);
-		}
+			
+			boolean crash  = bullets[i].getRect().intersects(plane.getRect());
+			
+			if(crash) {
+				plane.live = false;
+				if(explosion == null) {
+					
+					explosion = new Explode(plane.x,plane.y);
+					
+					endTime = new Date();
+					
+					period = (int)((endTime.getTime()-startTime.getTime())/1000);
+					
+				}
+				
+				explosion.draw(g);
+			}
+			
+			if(!plane.live) {
+				g.setColor(Color.WHITE);
+				Font f = new Font("Serif",Font.BOLD,50);
+				g.setFont(f);
+				g.drawString("Time: " +period+" second",100,200);
+				Font f2 = new Font("Serif",Font.BOLD,30);
+				g.setFont(f2);
+				
+			}
 		
+		}
+		g.setColor(c);
 	}
 	
 	
@@ -94,8 +128,7 @@ public class MyGameFrame extends Frame {
 		for(int i = 0; i<bullets.length;i++) {
 			bullets[i] = new Bullet();
 		}
-		
-	
+
 	}
 		
 	
