@@ -22,8 +22,8 @@ public class MyGameFrame extends Frame {
 	Image bg=GameUtil.getImage("images/bg.jpg");
 	
 	
-	Plane plane = new Plane(planeImage,300,300);
-	Bullet[] bullets = new Bullet[50];
+	Plane plane = new Plane(planeImage,450,450);
+	Bullet[] bullets = new Bullet[15];
 	
 	
 	Explode explosion;
