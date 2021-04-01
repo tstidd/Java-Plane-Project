@@ -14,6 +14,13 @@ public class Button extends GameObject{
 		return play;
 	}
 
+	/**
+	 * @param play the play to set
+	 */
+	public void setPlay(boolean play) {
+		this.play = play;
+	}
+
 	public Button(Image img, double x, double y) {
 		this.img = img;
 		this.x=x;
@@ -25,9 +32,7 @@ public class Button extends GameObject{
 	
 	public void drawSelf(Graphics g) {
 		
-		if (!play) {
 			g.drawImage(img, (int) x, (int) y, null);
-		}
 	}
 
 }
