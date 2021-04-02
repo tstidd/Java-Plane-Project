@@ -24,6 +24,12 @@ public class Bullet extends GameObject {
 		degree = Math.random( ) * Math.PI * 2;
 	}
 	
+	public void reset() {
+		x = 200;
+		y = 200;
+		speed = 4;
+		degree = Math.random( ) * Math.PI * 2;
+	}
 	
 	public void draw(Graphics g) {
 		Color c = g.getColor();

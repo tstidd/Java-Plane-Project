@@ -20,16 +20,32 @@ import java.awt.event.KeyEvent;
 				
 			g.drawImage(img, (int) x, (int) y, null);
 			if(left) {
+				if (x<0) {
+					x+=speed;
+				} else {
 				x-=speed;
+				}
 			}
 			if(right) {
+				if (x>Constant.GAME_WIDTH-width) {
+					x-=speed;
+				} else {
 				x+=speed;
+				}
 			}
 			if(up) {
+				if (y<30) {
+					y+=speed;
+				} else {
 				y-=speed;
+				}
 			}
 			if(down) {
+				if (y>Constant.GAME_HEIGHT-height) {
+					y-=speed;
+				} else {
 				y+=speed;
+				}
 			}
 			
 			}
