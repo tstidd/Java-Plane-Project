@@ -24,12 +24,17 @@ public class MyGameFrame extends Frame implements MouseListener{
 	Image tryAgainImage = GameUtil.getImage("images/Try Again.png");
 	Image menuButtonImage = GameUtil.getImage("images/Main Menu.png");
 	Image title = GameUtil.getImage("images/Title.png");
+	Image upArrow = GameUtil.getImage("images\\Up-Arrow.png");
+	Image downArrow = GameUtil.getImage("images\\Down-Arrow.png");
+	Image[] levels = new Image[5];
 
 	Plane plane = new Plane(planeImage, 450, 450);
 	Bullet[] bullets = new Bullet[15];
-	Button playButton = new Button(playButtonImage, 210, 300);
+	Button playButton = new Button(playButtonImage, 180, 300);
 	Button tryAgainButton = new Button(tryAgainImage, 150, 300);
 	Button menuButton = new Button(menuButtonImage, 250, 300);
+	Button upButton = new Button(upArrow, 350, 310);
+	Button downButton = new Button(downArrow, 350, 340);
 
 	Explode explosion;
 
@@ -47,6 +52,9 @@ public class MyGameFrame extends Frame implements MouseListener{
 		if (!playButton.isPlay()) {
 			g.drawImage(title, 50, 50, null);
 			playButton.drawSelf(g);
+			upButton.drawSelf(g);
+			downButton.drawSelf(g);
+			g.drawImage(levels[0], 400, 315, null);
 		}
 		
 		if (playButton.isPlay()) {
@@ -150,6 +158,9 @@ public class MyGameFrame extends Frame implements MouseListener{
 
 			for (int i = 0; i < bullets.length; i++) {
 				bullets[i] = new Bullet();
+			}
+			for (int i = 0; i < 5; i++) {
+				levels[i] = GameUtil.getImage("images\\Level-" + (i+1) + ".png");
 			}
 		}
 	}
