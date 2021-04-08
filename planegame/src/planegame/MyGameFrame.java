@@ -13,7 +13,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class MyGameFrame extends Frame implements MouseListener{
@@ -37,6 +40,9 @@ public class MyGameFrame extends Frame implements MouseListener{
 	Date endTime;
 	int period;
 	
+	Date dateTime;
+	
+	
 	boolean firstTry = true;
 
 	@Override
@@ -54,6 +60,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	private void playGame(Graphics g, Color c) {
 		
 		if (startTime == null) {
@@ -81,6 +88,13 @@ public class MyGameFrame extends Frame implements MouseListener{
 				}
 
 				explosion.draw(g);
+				//write to file
+				dateTime = new Date();
+				int month = Calendar.get(Calendar.YEAR);
+				
+				
+				writeFile(month,day,);
+			
 			}
 
 			if (!plane.live) {
@@ -90,9 +104,12 @@ public class MyGameFrame extends Frame implements MouseListener{
 				g.drawString("Time: " + period + " second", 100, 200);
 				Font f2 = new Font("Serif", Font.BOLD, 30);
 				g.setFont(f2);
-
+				
+			
+				
 				tryAgainButton.drawSelf(g);
 				menuButton.drawSelf(g);
+			
 			}
 
 		}
@@ -207,7 +224,22 @@ public class MyGameFrame extends Frame implements MouseListener{
 			}
 		}
 	}
+	
+	
+	public void writeFile(Date month,Date day, Date time) {
+		 try {
+		      FileWriter myWriter = new FileWriter("data.txt");
+		      myWriter.write(time+" "+"Time: " + period + " second");
+		      myWriter.close();
+		      System.out.println("Successfully wrote to the file.");
+		    } catch (IOException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
+	}
 
+	
+	
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
