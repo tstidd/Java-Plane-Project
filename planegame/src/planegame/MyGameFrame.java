@@ -26,7 +26,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 	Image title = GameUtil.getImage("images/Title.png");
 
 	Plane plane = new Plane(planeImage, 450, 450);
-	Bullet[] bullets = new Bullet[15];
+	Bullet[] bullets = new Bullet[10];
 	Button playButton = new Button(playButtonImage, 210, 300);
 	Button tryAgainButton = new Button(tryAgainImage, 150, 300);
 	Button menuButton = new Button(menuButtonImage, 250, 300);
