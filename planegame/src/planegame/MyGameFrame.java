@@ -15,6 +15,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,11 +39,11 @@ public class MyGameFrame extends Frame implements MouseListener{
 
 	Date startTime;
 	Date endTime;
-	int period;
+	static int period;
 	
 	Date dateTime;
 	
-	
+	static boolean crash = false;
 	boolean firstTry = true;
 
 	@Override
@@ -73,7 +74,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 
 			bullets[i].draw(g);
 
-			boolean crash = bullets[i].getRect().intersects(plane.getRect());
+			crash = bullets[i].getRect().intersects(plane.getRect());
 
 			if (crash) {
 				plane.live = false;
@@ -89,11 +90,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 
 				explosion.draw(g);
 				//write to file
-				dateTime = new Date();
-				int month = Calendar.get(Calendar.YEAR);
-				
-				
-				writeFile(month,day,);
+				writeFile.write();
 			
 			}
 
@@ -174,6 +171,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 	public static void main(String[] args) {
 		MyGameFrame f = new MyGameFrame();
 		f.launchFrame();
+	
 
 	}
 
@@ -209,6 +207,8 @@ public class MyGameFrame extends Frame implements MouseListener{
 					bullets[i].reset();
 				}
 				launchFrame();
+				writeFile.setWrite(true);
+				
 			}
 			if ((e.getX() >= (int)menuButton.x && e.getX() <= ((int)menuButton.x + menuButton.width)) && (e.getY() >= (int)menuButton.y && e.getY() <= ((int)menuButton.y + menuButton.height))) {
 				firstTry = false;
@@ -226,17 +226,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 	}
 	
 	
-	public void writeFile(Date month,Date day, Date time) {
-		 try {
-		      FileWriter myWriter = new FileWriter("data.txt");
-		      myWriter.write(time+" "+"Time: " + period + " second");
-		      myWriter.close();
-		      System.out.println("Successfully wrote to the file.");
-		    } catch (IOException e) {
-		      System.out.println("An error occurred.");
-		      e.printStackTrace();
-		    }
-	}
+	
 
 	
 	
@@ -250,6 +240,13 @@ public class MyGameFrame extends Frame implements MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	/**
+	 * @return the period
+	 */
+	public static int getPeriod() {
+		return period;
 	}
 
 	@Override
