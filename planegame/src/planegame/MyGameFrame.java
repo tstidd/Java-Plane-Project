@@ -99,9 +99,9 @@ public class MyGameFrame extends Frame implements MouseListener{
 				g.setFont(f3);		
 				g.drawString("TOP 3: ", 200,150);
 				
-				g.drawString(ReadFile.top1, 20,200);
-				g.drawString(ReadFile.top2, 20,240);
-				g.drawString(ReadFile.top3, 20,280);
+				g.drawString(ReadFile.getTop1(), 20,200);
+				g.drawString(ReadFile.getTop2(), 20,240);
+				g.drawString(ReadFile.getTop3(), 20,280);
 				
 			
 				
