@@ -53,7 +53,7 @@ public class ReadFile {
 		
 		Collections.sort(results, new SortbyPlayTime());	
 		
-		results.forEach((e)->{System.out.println(e);});
+		// results.forEach((e)->{System.out.println(e);});
 		getResults();
 		
 	}
