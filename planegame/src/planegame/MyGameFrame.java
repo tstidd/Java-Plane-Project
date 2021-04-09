@@ -33,7 +33,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 	Date startTime;
 	Date endTime;
 	static int period;
-	static int level = 1 ;
+	static int level = 2 ;
 	
 	static boolean crash = false;
 	boolean firstTry = true;
@@ -92,9 +92,16 @@ public class MyGameFrame extends Frame implements MouseListener{
 				g.setColor(Color.WHITE);
 				Font f = new Font("Serif", Font.BOLD, 50);
 				g.setFont(f);
-				g.drawString("Time: " + period + " second", 100, 200);
+				g.drawString("Time: " + period + " second", 100, 100);
 				Font f2 = new Font("Serif", Font.BOLD, 30);
 				g.setFont(f2);
+				Font f3 = new Font("Serif", Font.BOLD, 25);
+				g.setFont(f3);		
+				g.drawString("TOP 3: ", 200,150);
+				
+				g.drawString(ReadFile.top1, 20,200);
+				g.drawString(ReadFile.top2, 20,240);
+				g.drawString(ReadFile.top3, 20,280);
 				
 			
 				

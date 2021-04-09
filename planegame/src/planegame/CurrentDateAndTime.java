@@ -10,7 +10,7 @@ public class CurrentDateAndTime {
 	}
 	
 	public static String time() {
-	    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+	    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");  
 	    Date date = new Date();  
 	    return formatter.format(date);  
 	}
