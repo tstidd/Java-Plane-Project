@@ -32,18 +32,21 @@ public static void write() {
 	      FileWriter fw = new FileWriter(file,true);
 	      BufferedWriter bw = new BufferedWriter(fw);
 	      PrintWriter pw = new PrintWriter(bw);
-	      pw.println("Date: "+date+" Time: " + MyGameFrame.getPeriod() + " second");
+	      pw.println(date+" " + MyGameFrame.getPeriod() + " "+ MyGameFrame.getLevel());
 	      
 	      //PrintWriter printWriter = new PrintWriter("data.txt");
 	      //  printWriter.append("Time: " + MyGameFrame.getPeriod() + " second\n");
 	      pw.close();
 	      System.out.println("Successfully wrote to the file.");
-	      write = false;
+	   
 	     
 	    } catch (IOException e) {
 	      System.out.println("An error occurred.");
 	      e.printStackTrace();
-	    }
+	    }finally {
+	    	write = false;
+		}
+	 
 		}
 	
 
