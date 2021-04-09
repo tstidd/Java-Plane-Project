@@ -1,7 +1,5 @@
 package planegame;
 
-import javax.swing.JFrame;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
@@ -13,11 +11,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 public class MyGameFrame extends Frame implements MouseListener{
@@ -40,8 +33,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 	Date startTime;
 	Date endTime;
 	static int period;
-	
-	Date dateTime;
+	static int level = 1 ;
 	
 	static boolean crash = false;
 	boolean firstTry = true;
@@ -91,6 +83,8 @@ public class MyGameFrame extends Frame implements MouseListener{
 				explosion.draw(g);
 				//write to file
 				writeFile.write();
+				//read file
+				ReadFile.readFile();
 			
 			}
 
@@ -208,6 +202,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 				}
 				launchFrame();
 				writeFile.setWrite(true);
+				ReadFile.setRead(true);
 				
 			}
 			if ((e.getX() >= (int)menuButton.x && e.getX() <= ((int)menuButton.x + menuButton.width)) && (e.getY() >= (int)menuButton.y && e.getY() <= ((int)menuButton.y + menuButton.height))) {
@@ -247,6 +242,13 @@ public class MyGameFrame extends Frame implements MouseListener{
 	 */
 	public static int getPeriod() {
 		return period;
+	}
+
+	/**
+	 * @return the level
+	 */
+	public static int getLevel() {
+		return level;
 	}
 
 	@Override
