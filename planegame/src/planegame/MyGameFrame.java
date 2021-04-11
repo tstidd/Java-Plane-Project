@@ -210,6 +210,8 @@ public class MyGameFrame extends Frame implements MouseListener{
 				launchFrame();
 				writeFile.setWrite(true);
 				ReadFile.setRead(true);
+				ReadFile.resetTop();
+				ReadFile.readFile();
 				
 			}
 			if ((e.getX() >= (int)menuButton.x && e.getX() <= ((int)menuButton.x + menuButton.width)) && (e.getY() >= (int)menuButton.y && e.getY() <= ((int)menuButton.y + menuButton.height))) {

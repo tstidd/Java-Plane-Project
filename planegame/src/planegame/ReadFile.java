@@ -15,8 +15,6 @@ public class ReadFile {
 	private static String top1 = "";
 	private static String top2 = "";
 	private static String top3 = "";
-	
-	public static String[] top = {top1,top2,top3};
 
 	
 	public ReadFile() {
@@ -30,14 +28,13 @@ public class ReadFile {
 		{
 			if(input.hasNextLine())
 				//System.out.print(input.nextLine());
-			
+			results.clear();
 			while (input.hasNextLine()) {
 				String date = input.next();				
 				String time = input.next();
 				int playTime = input.nextInt();
 				int level = input.nextInt();
-				input.nextLine();
-				
+				input.nextLine();	
 				results.add(new tempRank(date,time,playTime,level));
 			}
 			
@@ -46,10 +43,10 @@ public class ReadFile {
 			System.out.println("File data.ext could not be found");
 		}finally {
 			read = false;
-				
+			
 		}
 		
-		Collections.sort(results, new SortbyPlayTime());	
+		//Collections.sort(results, new SortbyPlayTime());	
 		
 		// results.forEach((e)->{System.out.println(e);});
 		getResults();
@@ -67,11 +64,8 @@ public class ReadFile {
 	}
 	
 	public static void getResults(){
-		System.out.println("getResults");
-		
-		top1 ="";
-		top2 ="";
-		top3 ="";
+	
+		Collections.sort(results, new SortbyPlayTime());
 		
 		if(results.size()<3) {
 			
@@ -79,20 +73,35 @@ public class ReadFile {
 				top1+= results.get(0);
 			}
 			else if(results.size()==2) {
+				resetTop();
 				top1+= results.get(0);
 				top2+= results.get(1);
 				
 			}
 		}
 		else {
+			
+		resetTop();
+		
 		top1 += results.get(0);
 		top2 += results.get(1);
 		top3 += results.get(2);
 		
-		System.out.println(getTop1());
-		System.out.println(results.get(0));
+		System.out.println();
+		System.out.println("top1:"+ top1);
+		System.out.println("top2:"+ top2);
+		System.out.println("top3:"+ top3);
+
+		 results.forEach((e)->{System.out.println(e);});
 		}
 		
+	}
+	
+	
+	public static void resetTop() {
+		top1 ="";
+		top2 ="";
+		top3 ="";
 	}
 
 	/**
