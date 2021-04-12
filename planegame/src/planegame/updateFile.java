@@ -22,33 +22,26 @@ public static void updateFile(ArrayList<tempRank> results) {
 			      if(!file.exists()) {
 			    	  file.createNewFile();
 			      }
-			      
-			      
-			      
+  
 			      FileWriter fw = new FileWriter(file,false);
 			      BufferedWriter bw = new BufferedWriter(fw);
 			      PrintWriter pw = new PrintWriter(bw);
+			      pw.flush();
 			      
 			      
 			      Object[] updateResults = results.toArray();
 			      
-			      if(updateResults.length<10) {
-			      for(int i = 0; i<updateResults.length;i++) {  
-			    	  pw.println(((tempRank) updateResults[i]).getDate()+" " + ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
-			    	  pw.close();
-			    	  System.out.println(((tempRank) updateResults[i])+" " + ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
-				      System.out.println("Successfully update to the file.");
-			      }}
-			      else {
+			  
 			    	  for(int i = 0; i<10;i++) {  
-				    	  pw.println(((tempRank) updateResults[i]).getDate()+" " + ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
-				    	  pw.close();
-				    	  System.out.println(((tempRank) updateResults[i]).getDate()+" " + ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
-					      System.out.println("Successfully update to the file.");
-			      }
+			    		  
+				    	  pw.println(((tempRank) updateResults[i]).getDate()+" " +((tempRank) updateResults[i]).getTime()+" "+ ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
+				    	 
+				    	  System.out.println(((tempRank) updateResults[i]).getDate()+" " +((tempRank) updateResults[i]).getTime()+" "+ ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
 			      
-			      
-	    }} catch (IOException e) {
+			}	
+			    	  System.out.println("Successfully Update file.");
+			    	  pw.close();
+		} catch (IOException e) {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }

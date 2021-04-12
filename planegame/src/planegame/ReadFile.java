@@ -17,6 +17,8 @@ public class ReadFile {
 	private static String top3 = "";
 
 	
+
+
 	public ReadFile() {
 		// TODO Auto-generated constructor stub
 	}
@@ -49,7 +51,7 @@ public class ReadFile {
 		//Collections.sort(results, new SortbyPlayTime());	
 		
 		// results.forEach((e)->{System.out.println(e);});
-		getResults();
+		getResult();
 		
 
 		
@@ -63,7 +65,7 @@ public class ReadFile {
 		ReadFile.read = read;
 	}
 	
-	public static void getResults(){
+	public static void getResult(){
 	
 		Collections.sort(results, new SortbyPlayTime());
 		
@@ -86,13 +88,7 @@ public class ReadFile {
 		top1 += results.get(0);
 		top2 += results.get(1);
 		top3 += results.get(2);
-		
-		System.out.println();
-		System.out.println("top1:"+ top1);
-		System.out.println("top2:"+ top2);
-		System.out.println("top3:"+ top3);
 
-		 results.forEach((e)->{System.out.println(e);});
 		}
 		
 	}
@@ -145,6 +141,16 @@ public class ReadFile {
 	public static void setTop3(String top3) {
 		ReadFile.top3 = top3;
 	}
+
+	/**
+	 * @return the results
+	 */
+	public static ArrayList<tempRank> getResults() {
+		return results;
+	}
+
+
+	
 	
 }
 class SortbyPlayTime implements Comparator<tempRank>
