@@ -1,7 +1,5 @@
 package planegame;
 
-import javax.swing.JFrame;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
@@ -13,7 +11,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class MyGameFrame extends Frame implements MouseListener{
@@ -40,8 +37,10 @@ public class MyGameFrame extends Frame implements MouseListener{
 
 	Date startTime;
 	Date endTime;
-	int period;
+	static int period;
+	static int level = 2 ;
 	
+	static boolean crash = false;
 	boolean firstTry = true;
 
 	@Override
@@ -62,6 +61,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	private void playGame(Graphics g, Color c) {
 		
 		if (startTime == null) {
@@ -74,7 +74,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 
 			bullets[i].draw(g);
 
-			boolean crash = bullets[i].getRect().intersects(plane.getRect());
+			crash = bullets[i].getRect().intersects(plane.getRect());
 
 			if (crash) {
 				plane.live = false;
@@ -89,18 +89,33 @@ public class MyGameFrame extends Frame implements MouseListener{
 				}
 
 				explosion.draw(g);
+				//write to file
+				writeFile.write();
+				//read file
+				ReadFile.readFile();
+			
 			}
 
 			if (!plane.live) {
 				g.setColor(Color.WHITE);
 				Font f = new Font("Serif", Font.BOLD, 50);
 				g.setFont(f);
-				g.drawString("Time: " + period + " second", 100, 200);
+				g.drawString("Time: " + period + " second", 100, 100);
 				Font f2 = new Font("Serif", Font.BOLD, 30);
 				g.setFont(f2);
-
+				Font f3 = new Font("Serif", Font.BOLD, 25);
+				g.setFont(f3);		
+				g.drawString("TOP 3: ", 200,150);
+				
+				g.drawString(ReadFile.getTop1(), 20,200);
+				g.drawString(ReadFile.getTop2(), 20,240);
+				g.drawString(ReadFile.getTop3(), 20,280);
+				
+			
+				
 				tryAgainButton.drawSelf(g);
 				menuButton.drawSelf(g);
+			
 			}
 
 		}
@@ -168,6 +183,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 	public static void main(String[] args) {
 		MyGameFrame f = new MyGameFrame();
 		f.launchFrame();
+	
 
 	}
 
@@ -203,6 +219,15 @@ public class MyGameFrame extends Frame implements MouseListener{
 					bullets[i].reset();
 				}
 				launchFrame();
+				writeFile.setWrite(true);
+				ReadFile.setRead(true);
+				ReadFile.resetTop();
+				ReadFile.readFile();
+				if(ReadFile.getResults().size()>10) {
+					updateFile.updateFile(ReadFile.getResults());
+				}
+			
+				
 			}
 			if ((e.getX() >= (int)menuButton.x && e.getX() <= ((int)menuButton.x + menuButton.width)) && (e.getY() >= (int)menuButton.y && e.getY() <= ((int)menuButton.y + menuButton.height))) {
 				firstTry = false;
@@ -218,7 +243,12 @@ public class MyGameFrame extends Frame implements MouseListener{
 			}
 		}
 	}
+	
+	
+	
 
+	
+	
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -229,6 +259,20 @@ public class MyGameFrame extends Frame implements MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	/**
+	 * @return the period
+	 */
+	public static int getPeriod() {
+		return period;
+	}
+
+	/**
+	 * @return the level
+	 */
+	public static int getLevel() {
+		return level;
 	}
 
 	@Override
