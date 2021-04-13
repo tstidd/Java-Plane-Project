@@ -9,11 +9,9 @@ import java.util.ArrayList;
 
 public class updateFile {
 
-	public updateFile() {
-		// TODO Auto-generated constructor stub
-	}
 
-public static void updateFile(ArrayList<tempRank> results) {
+
+public static void update(ArrayList<tempRank> results) {
 	
 
 		try {

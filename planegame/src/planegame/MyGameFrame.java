@@ -239,7 +239,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 				ReadFile.resetTop();
 				ReadFile.readFile();
 				if(ReadFile.getResults().size()>10) {
-					updateFile.updateFile(ReadFile.getResults());
+					updateFile.update(ReadFile.getResults());
 				}
 			
 				
