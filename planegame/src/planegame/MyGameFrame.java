@@ -15,7 +15,7 @@ import java.util.Date;
 
 @SuppressWarnings("serial")
 public class MyGameFrame extends Frame implements MouseListener{
-
+	
 	Image planeImage = GameUtil.getImage("images/plane.png");
 	Image bg = GameUtil.getImage("images/bg.jpg");
 	Image playButtonImage = GameUtil.getImage("images/Play Button.png");
@@ -239,7 +239,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 				ReadFile.resetTop();
 				ReadFile.readFile();
 				if(ReadFile.getResults().size()>10) {
-					updateFile.updateFile(ReadFile.getResults());
+					updateFile.update(ReadFile.getResults());
 				}
 			
 				
@@ -259,10 +259,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 		}
 	}
 	
-	
-	
 
-	
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
