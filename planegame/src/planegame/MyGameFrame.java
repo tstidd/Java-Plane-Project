@@ -13,6 +13,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class MyGameFrame extends Frame implements MouseListener{
 
 	Image planeImage = GameUtil.getImage("images/plane.png");
@@ -40,7 +41,6 @@ public class MyGameFrame extends Frame implements MouseListener{
 	static int level = 1 ;
 	
 	Bullet[] bullets;
-	int numberOfBullets;
 	
 	static boolean crash = false;
 	boolean firstTry = true;
