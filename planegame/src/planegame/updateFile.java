@@ -34,7 +34,7 @@ public static void update(ArrayList<tempRank> results) {
 			    		  
 				    	  pw.println(((tempRank) updateResults[i]).getDate()+" " +((tempRank) updateResults[i]).getTime()+" "+ ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
 				    	 
-				    	  System.out.println(((tempRank) updateResults[i]).getDate()+" " +((tempRank) updateResults[i]).getTime()+" "+ ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
+				    	 // System.out.println(((tempRank) updateResults[i]).getDate()+" " +((tempRank) updateResults[i]).getTime()+" "+ ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
 			      
 			}	
 			    	  System.out.println("Successfully Update file.");
