@@ -49,5 +49,15 @@ public class Bullet extends GameObject {
 		
 		g.setColor(c);
 	}
+	
+	public static Bullet[] setNumberofBullets(int num) {
+		Bullet[] bullets = new Bullet[num];
+		
+		for (int i = 0; i < bullets.length; i++) {
+			bullets[i] = new Bullet();
+		}
+		
+		return bullets;
+	}
 
 }

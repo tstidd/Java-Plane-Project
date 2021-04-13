@@ -23,22 +23,24 @@ public class MyGameFrame extends Frame implements MouseListener{
 	Image title = GameUtil.getImage("images/Title.png");
 	Image upArrow = GameUtil.getImage("images\\Up-Arrow.png");
 	Image downArrow = GameUtil.getImage("images\\Down-Arrow.png");
-	Image[] levels = new Image[5];
 
 	Plane plane = new Plane(planeImage, 450, 450);
-	Bullet[] bullets = new Bullet[15];
 	Button playButton = new Button(playButtonImage, 180, 300);
 	Button tryAgainButton = new Button(tryAgainImage, 150, 300);
 	Button menuButton = new Button(menuButtonImage, 250, 300);
 	Button upButton = new Button(upArrow, 350, 310);
 	Button downButton = new Button(downArrow, 350, 340);
+	Button[] banner = new Button[5];
 
 	Explode explosion;
 
 	Date startTime;
 	Date endTime;
 	static int period;
-	static int level = 2 ;
+	static int level = 1 ;
+	
+	Bullet[] bullets;
+	int numberOfBullets;
 	
 	static boolean crash = false;
 	boolean firstTry = true;
@@ -53,7 +55,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 			playButton.drawSelf(g);
 			upButton.drawSelf(g);
 			downButton.drawSelf(g);
-			g.drawImage(levels[0], 400, 315, null);
+			banner[level-1].drawSelf(g);
 		}
 		
 		if (playButton.isPlay()) {
@@ -61,14 +63,16 @@ public class MyGameFrame extends Frame implements MouseListener{
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	private void playGame(Graphics g, Color c) {
 		
 		if (startTime == null) {
 			startTime = new Date();
+			bullets = Bullet.setNumberofBullets(level * 10);
 		}
 		
 		plane.drawSelf(g);
+		
+		
 
 		for (int i = 0; i < bullets.length; i++) {
 
@@ -171,11 +175,10 @@ public class MyGameFrame extends Frame implements MouseListener{
 			new PaintThread().start();// active repaint window
 			addKeyListener(new KeyMonitor());// give window add key monitor
 
-			for (int i = 0; i < bullets.length; i++) {
-				bullets[i] = new Bullet();
-			}
+			
+			
 			for (int i = 0; i < 5; i++) {
-				levels[i] = GameUtil.getImage("images\\Level-" + (i+1) + ".png");
+				banner[i] = new Button((GameUtil.getImage("images\\Level-" + (i+1) + ".png")), 400, 315);
 			}
 		}
 	}
@@ -204,6 +207,18 @@ public class MyGameFrame extends Frame implements MouseListener{
 		if (!playButton.isPlay()) {
 			if ((e.getX() >= (int)playButton.x && e.getX() <= ((int)playButton.x + playButton.width)) && (e.getY() >= (int)playButton.y && e.getY() <= ((int)playButton.y + playButton.height))) {
 				playButton.setPlay(true);
+			}
+			
+			if ((e.getX() >= (int)upButton.x && e.getX() <= ((int)upButton.x + upButton.width)) && (e.getY() >= (int)upButton.y && e.getY() <= ((int)upButton.y + upButton.height))) {
+				if (level < 5) {
+					level++;
+				}
+			}
+			
+			if ((e.getX() >= (int)downButton.x && e.getX() <= ((int)downButton.x + downButton.width)) && (e.getY() >= (int)downButton.y && e.getY() <= ((int)downButton.y + downButton.height))) {
+				if (level > 1) {
+					level--;
+				}
 			}
 		}
 		
