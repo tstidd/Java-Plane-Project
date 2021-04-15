@@ -32,7 +32,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 	Button upButton = new Button(upArrow, 350, 310);
 	Button downButton = new Button(downArrow, 350, 340);
 	
-	Button[] banner = new Button[5];
+	Button[] banner;
 
 	Explode explosion;
 
@@ -56,7 +56,12 @@ public class MyGameFrame extends Frame implements MouseListener{
 			playButton.drawSelf(g);
 			upButton.drawSelf(g);
 			downButton.drawSelf(g);
-			//banner[level-1].drawSelf(g);
+			
+			if(banner==null) {
+				createBanner();
+			}
+			
+			banner[level-1].drawSelf(g);
 		}
 		
 		if (playButton.isPlay()) {
@@ -157,6 +162,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 	
 
 	public void createBanner(){
+		banner = new Button[5];
 		for (int i = 0; i < 5; i++) {
 			banner[i] = new Button((GameUtil.getImage("images/Level-" + (i+1) + ".png")), 400, 315);
 		}
@@ -185,11 +191,9 @@ public class MyGameFrame extends Frame implements MouseListener{
 		});
 			new PaintThread().start();// active repaint window
 			addKeyListener(new KeyMonitor());// give window add key monitor
-
-		
 			
-		
 		}
+
 	}
 
 	public static void main(String[] args) {
