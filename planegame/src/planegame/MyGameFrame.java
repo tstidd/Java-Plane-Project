@@ -22,8 +22,8 @@ public class MyGameFrame extends Frame implements MouseListener{
 	Image tryAgainImage = GameUtil.getImage("images/Try Again.png");
 	Image menuButtonImage = GameUtil.getImage("images/Main Menu.png");
 	Image title = GameUtil.getImage("images/Title.png");
-	Image upArrow = GameUtil.getImage("images\\Up-Arrow.png");
-	Image downArrow = GameUtil.getImage("images\\Down-Arrow.png");
+	Image upArrow = GameUtil.getImage("images/Up-Arrow.png");
+	Image downArrow = GameUtil.getImage("images/Down-Arrow.png");
 
 	Plane plane = new Plane(planeImage, 450, 450);
 	Button playButton = new Button(playButtonImage, 180, 300);
@@ -31,6 +31,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 	Button menuButton = new Button(menuButtonImage, 250, 300);
 	Button upButton = new Button(upArrow, 350, 310);
 	Button downButton = new Button(downArrow, 350, 340);
+	
 	Button[] banner = new Button[5];
 
 	Explode explosion;
@@ -55,7 +56,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 			playButton.drawSelf(g);
 			upButton.drawSelf(g);
 			downButton.drawSelf(g);
-			banner[level-1].drawSelf(g);
+			//banner[level-1].drawSelf(g);
 		}
 		
 		if (playButton.isPlay()) {
@@ -152,7 +153,17 @@ public class MyGameFrame extends Frame implements MouseListener{
 			plane.stopDirection(e);
 		}
 	}
+	
+	
 
+	public void createBanner(){
+		for (int i = 0; i < 5; i++) {
+			banner[i] = new Button((GameUtil.getImage("images/Level-" + (i+1) + ".png")), 400, 315);
+		}
+	}
+	
+	
+	
 	public void launchFrame() {
 		// title
 		setTitle("Team project");
@@ -163,7 +174,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 		setSize(500, 500);
 		// set location;
 		setLocation(300, 300);
-		
+		createBanner();
 		addMouseListener(this);
 
 		addWindowListener(new WindowAdapter() {
@@ -175,11 +186,9 @@ public class MyGameFrame extends Frame implements MouseListener{
 			new PaintThread().start();// active repaint window
 			addKeyListener(new KeyMonitor());// give window add key monitor
 
+		
 			
-			
-			for (int i = 0; i < 5; i++) {
-				banner[i] = new Button((GameUtil.getImage("images\\Level-" + (i+1) + ".png")), 400, 315);
-			}
+		
 		}
 	}
 
