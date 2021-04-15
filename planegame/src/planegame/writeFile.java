@@ -23,7 +23,7 @@ public static void write() {
 	if(write) {
 			
 	 try {
-	      File file = new File("data.txt");
+	      File file = new File("src/file/data.txt");
 	      
 	      if(!file.exists()) {
 	    	  file.createNewFile();

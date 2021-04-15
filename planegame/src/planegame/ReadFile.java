@@ -26,7 +26,7 @@ public class ReadFile {
 	public static void readFile() {
 		
 		if(read) {
-		try(Scanner input = new Scanner(new File("data.txt")))
+		try(Scanner input = new Scanner(new File("src/file/data.txt")))
 		{
 			if(input.hasNextLine())
 				//System.out.print(input.nextLine());

@@ -15,7 +15,7 @@ public static void update(ArrayList<tempRank> results) {
 	
 
 		try {
-			   File file = new File("data.txt");
+			   File file = new File("src/file/data.txt");
 			      
 			      if(!file.exists()) {
 			    	  file.createNewFile();

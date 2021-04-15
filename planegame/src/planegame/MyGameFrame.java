@@ -22,8 +22,8 @@ public class MyGameFrame extends Frame implements MouseListener{
 	Image tryAgainImage = GameUtil.getImage("images/Try Again.png");
 	Image menuButtonImage = GameUtil.getImage("images/Main Menu.png");
 	Image title = GameUtil.getImage("images/Title.png");
-	Image upArrow = GameUtil.getImage("images\\Up-Arrow.png");
-	Image downArrow = GameUtil.getImage("images\\Down-Arrow.png");
+	Image upArrow = GameUtil.getImage("images/Up-Arrow.png");
+	Image downArrow = GameUtil.getImage("images/Down-Arrow.png");
 
 	Plane plane = new Plane(planeImage, 450, 450);
 	Button playButton = new Button(playButtonImage, 180, 300);
@@ -178,7 +178,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 			
 			
 			for (int i = 0; i < 5; i++) {
-				banner[i] = new Button((GameUtil.getImage("images\\Level-" + (i+1) + ".png")), 400, 315);
+				banner[i] = new Button((GameUtil.getImage("images/Level-" + (i+1) + ".png")), 400, 315);
 			}
 		}
 	}
