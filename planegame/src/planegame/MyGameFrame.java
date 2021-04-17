@@ -17,15 +17,15 @@ import jdk.jfr.SettingControl;
 
 @SuppressWarnings("serial")
 public class MyGameFrame extends Frame implements MouseListener{
-
+	
 	Image planeImage = GameUtil.getImage("images/plane.png");
 	Image bg = GameUtil.getImage("images/bg.jpg");
 	Image playButtonImage = GameUtil.getImage("images/Play Button.png");
 	Image tryAgainImage = GameUtil.getImage("images/Try Again.png");
 	Image menuButtonImage = GameUtil.getImage("images/Main Menu.png");
 	Image title = GameUtil.getImage("images/Title.png");
-	Image upArrow = GameUtil.getImage("images\\Up-Arrow.png");
-	Image downArrow = GameUtil.getImage("images\\Down-Arrow.png");
+	Image upArrow = GameUtil.getImage("images/Up-Arrow.png");
+	Image downArrow = GameUtil.getImage("images/Down-Arrow.png");
 
 	Plane plane = new Plane(planeImage, 450, 450);
 	Button playButton = new Button(playButtonImage, 180, 300);
@@ -33,7 +33,8 @@ public class MyGameFrame extends Frame implements MouseListener{
 	Button menuButton = new Button(menuButtonImage, 250, 300);
 	Button upButton = new Button(upArrow, 350, 310);
 	Button downButton = new Button(downArrow, 350, 340);
-	Button[] banner = new Button[5];
+	
+	Button[] banner;
 
 	Explode explosion;
 
@@ -57,6 +58,11 @@ public class MyGameFrame extends Frame implements MouseListener{
 			playButton.drawSelf(g);
 			upButton.drawSelf(g);
 			downButton.drawSelf(g);
+			
+			if(banner==null) {
+				createBanner();
+			}
+			
 			banner[level-1].drawSelf(g);
 		}
 		
@@ -154,7 +160,18 @@ public class MyGameFrame extends Frame implements MouseListener{
 			plane.stopDirection(e);
 		}
 	}
+	
+	
 
+	public void createBanner(){
+		banner = new Button[5];
+		for (int i = 0; i < 5; i++) {
+			banner[i] = new Button((GameUtil.getImage("images/Level-" + (i+1) + ".png")), 400, 315);
+		}
+	}
+	
+	
+	
 	public void launchFrame() {
 		// title
 		setTitle("Team project");
@@ -168,6 +185,8 @@ public class MyGameFrame extends Frame implements MouseListener{
 		// disable maximize button
 		setResizable(false);
 		
+		createBanner();
+
 		addMouseListener(this);
 
 		addWindowListener(new WindowAdapter() {
@@ -178,13 +197,9 @@ public class MyGameFrame extends Frame implements MouseListener{
 		});
 			new PaintThread().start();// active repaint window
 			addKeyListener(new KeyMonitor());// give window add key monitor
-
 			
-			
-			for (int i = 0; i < 5; i++) {
-				banner[i] = new Button((GameUtil.getImage("images\\Level-" + (i+1) + ".png")), 400, 315);
-			}
 		}
+
 	}
 
 	public static void main(String[] args) {
@@ -243,7 +258,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 				ReadFile.resetTop();
 				ReadFile.readFile();
 				if(ReadFile.getResults().size()>10) {
-					updateFile.updateFile(ReadFile.getResults());
+					updateFile.update(ReadFile.getResults());
 				}
 			
 				
@@ -263,10 +278,7 @@ public class MyGameFrame extends Frame implements MouseListener{
 		}
 	}
 	
-	
-	
 
-	
 	
 	@Override
 	public void mousePressed(MouseEvent e) {

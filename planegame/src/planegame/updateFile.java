@@ -9,11 +9,9 @@ import java.util.ArrayList;
 
 public class updateFile {
 
-	public updateFile() {
-		// TODO Auto-generated constructor stub
-	}
 
-public static void updateFile(ArrayList<tempRank> results) {
+
+public static void update(ArrayList<tempRank> results) {
 	
 
 		try {
@@ -36,7 +34,7 @@ public static void updateFile(ArrayList<tempRank> results) {
 			    		  
 				    	  pw.println(((tempRank) updateResults[i]).getDate()+" " +((tempRank) updateResults[i]).getTime()+" "+ ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
 				    	 
-				    	  System.out.println(((tempRank) updateResults[i]).getDate()+" " +((tempRank) updateResults[i]).getTime()+" "+ ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
+				    	 // System.out.println(((tempRank) updateResults[i]).getDate()+" " +((tempRank) updateResults[i]).getTime()+" "+ ((tempRank) updateResults[i]).getPlayTime() + " "+ ((tempRank) updateResults[i]).getLevel());
 			      
 			}	
 			    	  System.out.println("Successfully Update file.");
