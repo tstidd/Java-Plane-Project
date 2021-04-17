@@ -117,11 +117,11 @@ Bullet[] bullets;
 ## Possible Additions / Future Upgrades:
 
 In the future we are looking to:
-•	Make the Spaceship able to shoot the bombs with a laser cannon.
-•	Enable a short duration shield or force field that will make the bombs bounce off the ship in the proper trajectory. You would only get to use it a limited number of times per level. If you don’t use it, they would carry over to the next level.
-•	Make the levels timed (or maybe you must eliminate/shoot all the bombs) before automatically advancing to the next level.
-•	Set up a point system that is a combination of time and points for shooting bombs. Higher levels would achieve higher points.
-•	Add a player name to the High Score list.
+-	Make the Spaceship able to shoot the bombs with a laser cannon.
+-	Enable a short duration shield or force field that will make the bombs bounce off the ship in the proper trajectory. You would only get to use it a limited number of times per level. If you don’t use it, they would carry over to the next level.
+-	Make the levels timed (or maybe you must eliminate/shoot all the bombs) before automatically advancing to the next level.
+-	Set up a point system that is a combination of time and points for shooting bombs. Higher levels would achieve higher points.
+-	Add a player name to the High Score list.
 
 
 ### Conclusion:
