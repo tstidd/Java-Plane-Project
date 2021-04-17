@@ -13,6 +13,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Date;
 
+import jdk.jfr.SettingControl;
+
 @SuppressWarnings("serial")
 public class MyGameFrame extends Frame implements MouseListener{
 
@@ -163,6 +165,8 @@ public class MyGameFrame extends Frame implements MouseListener{
 		setSize(500, 500);
 		// set location;
 		setLocation(300, 300);
+		// disable maximize button
+		setResizable(false);
 		
 		addMouseListener(this);
 
