@@ -11,13 +11,13 @@ Created with:  Eclipse IDE
 
 Written in:  JAVA ver. 8.1
 
-Programmers:
+### Programmers:
 
 Qi Cao – alanqicao@gmail.com
-Jonathan Bodily – jonathan888b@gmail.com
+Jonathan Bodily – 
 Terry Stidd – t.stidd28237@gmail.com
 
-Playing the Game:
+### Playing the Game:
 
 1.	Select the level by clicking the up or down buttons. (Each level adds 10 more bombs.)
 2.	Click on Play.
@@ -25,8 +25,9 @@ Playing the Game:
 4.	Avoid being hit by or hitting the bombs for as long as you can.
 
 
-The menu to start the game:
+### The menu to start the game:
 
+```
 public void paint(Graphics g) {
 	Color c = g.getColor();
 	g.drawImage(bg, 0, 0, null);
@@ -42,12 +43,12 @@ public void paint(Graphics g) {
 	if (playButton.isPlay()) {
 		playGame(g, c);
 	}
+```
 
+### The code to Play the Game:
 
-The code to Play the Game:
-
-private void playGame(Graphics g, Color c) {
-```		
+```
+private void playGame(Graphics g, Color c) {		
 	if (startTime == null) {
 		startTime = new Date();
 		bullets = Bullet.setNumberofBullets(level * 10);
@@ -95,7 +96,7 @@ private void playGame(Graphics g, Color c) {
 }
 ```
 
-Variables List:
+### Variables List:
 
 Plane plane = new Plane(planeImage, 450, 450);
 Button playButton = new Button(playButtonImage, 180, 300);
@@ -113,7 +114,7 @@ static int level = 1;
 Bullet[] bullets;
 
 
-Possible Additions / Future Upgrades:
+## Possible Additions / Future Upgrades:
 
 In the future we are looking to:
 •	Make the Spaceship able to shoot the bombs with a laser cannon.
@@ -123,11 +124,11 @@ In the future we are looking to:
 •	Add a player name to the High Score list.
 
 
-Conclusion:
+### Conclusion:
 
 We hope you have fun playing the game. Feel free to make additions or updates to this program. All we ask is that you send us a copy of your updates. We are new programmers and would love your input and suggestions. Thanks
 
 t.stidd28237@gmail.com
 alanqicao@gmail.com
-jonathan888b@gmail.com
+
 
