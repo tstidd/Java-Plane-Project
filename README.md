@@ -17,12 +17,13 @@ Qi Cao – alanqicao@gmail.com
 Jonathan Bodily – jonathan888b@gmail.com
 Terry Stidd – t.stidd28237@gmail.com
 
+
 ### Playing the Game:
 
-1.	Select the level by clicking the up or down buttons. (Each level adds 10 more bombs.)
-2.	Click on Play.
-3.	Move the spaceship by using the arrow keys.
-4.	Avoid being hit by or hitting the bombs for as long as you can.
+1. Select the level by clicking the up or down buttons. (Each level adds 10 more bombs.)
+2. Click on Play.
+3. Move the spaceship by using the arrow keys.
+4. Avoid being hit by or hitting the bombs for as long as you can.
 
 
 ### The menu to start the game:
