@@ -129,6 +129,8 @@ In the future we are looking to:
 We hope you have fun playing the game. Feel free to make additions or updates to this program. All we ask is that you send us a copy of your updates. We are new programmers and would love your input and suggestions. Thanks
 
 t.stidd28237@gmail.com
+
 alanqicao@gmail.com
+
 jonathan888b@gmail.com
 
