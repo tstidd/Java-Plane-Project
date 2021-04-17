@@ -14,7 +14,7 @@ Written in:  JAVA ver. 8.1
 Programmers:
 
 Qi Cao – alanqicao@gmail.com
-Jonathan Bodily – 
+Jonathan Bodily – jonathan888b@gmail.com
 Terry Stidd – t.stidd28237@gmail.com
 
 Playing the Game:
@@ -129,5 +129,5 @@ We hope you have fun playing the game. Feel free to make additions or updates to
 
 t.stidd28237@gmail.com
 alanqicao@gmail.com
-
+jonathan888b@gmail.com
 
