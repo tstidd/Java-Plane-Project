@@ -6,10 +6,10 @@
 
 Test your hand at avoiding the floating bombs while flying through space. The bombs move in random directions and bounce off the walls to return to haunt you again and again. Avoid the bombs for as long as you can and achieve the high score.
 
+### Programming Environment:
 
-Created with:  Eclipse IDE
-
-Written in:  JAVA ver. 8.1
+- Created with:  ##Eclipse IDE##
+- Written in:  ##JAVA ver. 8.1##
 
 ### Programmers:
 
@@ -98,6 +98,7 @@ private void playGame(Graphics g, Color c) {
 
 ### Variables List:
 
+```
 Plane plane = new Plane(planeImage, 450, 450);
 Button playButton = new Button(playButtonImage, 180, 300);
 Button tryAgainButton = new Button(tryAgainImage, 150, 300);
@@ -112,7 +113,7 @@ Date endTime;
 static int period;
 static int level = 1;
 Bullet[] bullets;
-
+```
 
 ## Possible Additions / Future Upgrades:
 
